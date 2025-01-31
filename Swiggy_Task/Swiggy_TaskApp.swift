@@ -12,7 +12,7 @@ import SwiftData
 struct Swiggy_TaskApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            StockEntity.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +25,7 @@ struct Swiggy_TaskApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StockListingView(modelContext: ModelContext(sharedModelContainer))
         }
         .modelContainer(sharedModelContainer)
     }

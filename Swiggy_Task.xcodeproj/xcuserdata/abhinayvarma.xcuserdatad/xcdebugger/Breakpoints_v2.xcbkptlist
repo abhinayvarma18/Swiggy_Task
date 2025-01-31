@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "EDB63A42-D77D-487B-9E4E-63E0140DFF9D"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7024FCC5-D8E9-41B3-BEB4-631210A352A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/StockViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "init(repository:pollingManager:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08FD5C1D-35B7-452B-97B8-835A3C93CD6A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Networking/StockPollingManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "fetchStockData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "08FD5C1D-35B7-452B-97B8-835A3C93CD6A - bdb6ee2fa5f8724"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiggy_Task.StockPollingManager.fetchStockData() -&gt; ()"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/Networking/StockPollingManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+               <Location
+                  uuid = "08FD5C1D-35B7-452B-97B8-835A3C93CD6A - edabe525a5d8f01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Swiggy_Task.Stock&gt;, Swiggy_Task.NetworkError&gt;) -&gt; () in Swiggy_Task.StockPollingManager.fetchStockData() -&gt; ()"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/Networking/StockPollingManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79E10BD8-6261-4F73-8399-4595EE615A53"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/StockViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "init(repository:pollingManager:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "79E10BD8-6261-4F73-8399-4595EE615A53 - 3469feed78e52107"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiggy_Task.StockViewModel.init(repository: Swift.Optional&lt;Swiggy_Task.StockRepositoryProtocol&gt;, pollingManager: Swift.Optional&lt;Swiggy_Task.StockPollingManagerProtocol&gt;) -&gt; Swiggy_Task.StockViewModel"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/StockViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25">
+               </Location>
+               <Location
+                  uuid = "79E10BD8-6261-4F73-8399-4595EE615A53 - 58391e47690c6c8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Swiggy_Task.Stock&gt;) -&gt; () in Swiggy_Task.StockViewModel.init(repository: Swift.Optional&lt;Swiggy_Task.StockRepositoryProtocol&gt;, pollingManager: Swift.Optional&lt;Swiggy_Task.StockPollingManagerProtocol&gt;) -&gt; Swiggy_Task.StockViewModel"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/StockViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25">
+               </Location>
+               <Location
+                  uuid = "79E10BD8-6261-4F73-8399-4595EE615A53 - 96b0e6f6ed1f17a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Array&lt;Swiggy_Task.Stock&gt;) -&gt; () in Swiggy_Task.StockViewModel.init(repository: Swift.Optional&lt;Swiggy_Task.StockRepositoryProtocol&gt;, pollingManager: Swift.Optional&lt;Swiggy_Task.StockPollingManagerProtocol&gt;) -&gt; Swiggy_Task.StockViewModel"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/StockViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "28087B60-E335-45BB-99FA-71BCCB18A8B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Networking/StockPollingManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "fetchStockData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "28087B60-E335-45BB-99FA-71BCCB18A8B6 - edabe525a5d8f43"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Swiggy_Task.Stock&gt;, Swiggy_Task.NetworkError&gt;) -&gt; () in Swiggy_Task.StockPollingManager.fetchStockData() -&gt; ()"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/Networking/StockPollingManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45">
+               </Location>
+               <Location
+                  uuid = "28087B60-E335-45BB-99FA-71BCCB18A8B6 - edabe525a5d8f43"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Swiggy_Task.Stock&gt;, Swiggy_Task.NetworkError&gt;) -&gt; () in Swiggy_Task.StockPollingManager.fetchStockData() -&gt; ()"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/Networking/StockPollingManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2605953-2381-46B8-A739-E671897CAFB5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Persistance/StockRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "fetchStockData(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A2605953-2381-46B8-A739-E671897CAFB5 - f2cb6e5ce6af1b65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiggy_Task.StockRepository.fetchStockData(completion: (Swift.Result&lt;Swift.Array&lt;Swiggy_Task.Stock&gt;, Swiggy_Task.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/Persistance/StockRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31">
+               </Location>
+               <Location
+                  uuid = "A2605953-2381-46B8-A739-E671897CAFB5 - 77cd374e694fc96e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swiggy_Task.StockResponse, Swift.Error&gt;) -&gt; () in Swiggy_Task.StockRepository.fetchStockData(completion: (Swift.Result&lt;Swift.Array&lt;Swiggy_Task.Stock&gt;, Swiggy_Task.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/Persistance/StockRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A68661F4-3F1B-4987-A4C3-367DACA07859"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Persistance/StockRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "fetchStockData(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6ED9B23E-4808-4002-AA91-6CF814EE46BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Persistance/StockRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "fetchStockData(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6ED9B23E-4808-4002-AA91-6CF814EE46BB - 1fd5815b0201ef4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Result&lt;Swiggy_Task.StockResponse, Swift.Error&gt;) -&gt; () in Swiggy_Task.StockRepository.fetchStockData(completion: (Swift.Result&lt;Swift.Array&lt;Swiggy_Task.Stock&gt;, Swiggy_Task.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/Persistance/StockRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34">
+               </Location>
+               <Location
+                  uuid = "6ED9B23E-4808-4002-AA91-6CF814EE46BB - 1fd5815b0201ef4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Result&lt;Swiggy_Task.StockResponse, Swift.Error&gt;) -&gt; () in Swiggy_Task.StockRepository.fetchStockData(completion: (Swift.Result&lt;Swift.Array&lt;Swiggy_Task.Stock&gt;, Swiggy_Task.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Swiggy_Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhinayvarma/Desktop/Swiggy_Task/Swiggy_Task/Persistance/StockRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "203CC1E6-F8B7-4318-8C01-07604F447DCD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Networking/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getData(_:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33826916-1573-4097-899C-061D2C120C7E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Networking/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getData(_:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D7797F6-88D7-4131-9A3A-E9CF72512A9F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Networking/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getData(_:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B94231A-BB27-440D-89FF-CEDBE409F402"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Persistance/StockRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "generateUrlForStocks()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "850893BE-136A-4CF7-BC32-3B4FA0E25795"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiggy_Task/Persistance/StockRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "addQueryParams(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
