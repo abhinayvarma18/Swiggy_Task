@@ -43,8 +43,8 @@ class StockPollingManager: StockPollingManagerProtocol {
         repository.fetchStockData { [weak self] result in
             switch result {
             case .success(let stocks):
-                self?.onStockDataUpdate?(stocks)
                 self?.repository.saveStocksToDatabase(stocks)
+                self?.onStockDataUpdate?(stocks)
             case .failure(let error):
                 print("Stock API Error: \(error)")
             }

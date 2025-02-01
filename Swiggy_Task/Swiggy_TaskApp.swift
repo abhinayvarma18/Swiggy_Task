@@ -10,23 +10,14 @@ import SwiftData
 
 @main
 struct Swiggy_TaskApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            StockEntity.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
+    @StateObject private var modelData = ModelData()
+    @StateObject var router = NavigationRouter()
     var body: some Scene {
         WindowGroup {
-            StockListingView(modelContext: ModelContext(sharedModelContainer))
+            StockListingView(modelData.context)
+                .environmentObject(modelData)
+                .environmentObject(router)
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(modelData.container)
     }
 }

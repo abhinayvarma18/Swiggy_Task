@@ -31,3 +31,15 @@ extension Color {
         )
     }
 }
+
+extension Array where Element == Stock {
+    mutating func sortByPriority() {
+        let priority: [String: Int] = ["RELI": 0, "ITC": 1, "TCS": 2, "HDBK": 3, "INFY": 4]
+        
+        self.sort {
+            let p1 = priority[$0.sid ?? ""] ?? Int.max
+            let p2 = priority[$1.sid ?? ""] ?? Int.max
+            return p1 < p2
+        }
+    }
+}

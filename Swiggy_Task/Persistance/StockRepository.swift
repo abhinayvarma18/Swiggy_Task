@@ -13,6 +13,9 @@ protocol StockRepositoryProtocol {
     func fetchStockData(completion: @escaping (Result<[Stock], NetworkError>) -> Void)
     func saveStocksToDatabase(_ stocks: [Stock])
     func loadCachedStocks() -> [Stock]
+    func loadWishList() -> [Stock]
+    func addRemoveToWishList(_ isAdded: Bool, _ model: Stock)
+    func checkIfStockInWishList(_ model: Stock) -> Bool
 }
 
 class StockRepository: StockRepositoryProtocol {
@@ -49,24 +52,35 @@ class StockRepository: StockRepositoryProtocol {
         do {
             let fetchDescriptor = FetchDescriptor<StockEntity>()
             let existingStocks = try modelContext.fetch(fetchDescriptor)
-            for stock in existingStocks {
-                modelContext.delete(stock)
+            
+            for stock in stocks {
+                if let existingStock = existingStocks.first(where: { $0.sid == (stock.sid ?? "") }) {
+                    // Update existing stock
+                    existingStock.price = stock.price ?? 0.0
+                    existingStock.date = stock.date ?? ""
+                    existingStock.change = stock.change ?? 0.0
+                    existingStock.high = stock.high ?? 0.0
+                    existingStock.low = stock.low ?? 0.0
+                    existingStock.volume = stock.volume ?? 0.0
+                    existingStock.isWishlist = existingStock.isWishlist
+                    try modelContext.save()
+                } else {
+                    // Insert new stock if it doesn't exist
+                    let stockEntity = StockEntity(
+                        sid: stock.sid ?? "",
+                        price: stock.price ?? 0.0,
+                        date: stock.date ?? "",
+                        change: stock.change ?? 0.0,
+                        high: stock.high ?? 0.0,
+                        low: stock.low ?? 0.0,
+                        volume: stock.volume ?? 0.0,
+                        isWishlist: false
+                    )
+                    modelContext.insert(stockEntity)
+                }
             }
         } catch {
-            print("Error deleting old stock data: \(error)")
-        }
-        
-        for stock in stocks {
-            let stockEntity = StockEntity(
-                sid: stock.sid ?? "",
-                price: stock.price ?? 0.0,
-                date: stock.date ?? "",
-                change: stock.change ?? 0.0,
-                high: stock.high ?? 0.0,
-                low: stock.low ?? 0.0,
-                volume: stock.volume ?? 0.0
-            )
-            modelContext.insert(stockEntity)
+            print("Error fetching stock data: \(error)")
         }
     }
     
@@ -83,12 +97,63 @@ class StockRepository: StockRepositoryProtocol {
                     change: $0.change,
                     high: $0.high,
                     low: $0.low,
-                    volume: $0.volume
+                    volume: $0.volume,
+                    isFav: $0.isWishlist
                 )
             }
         } catch {
             print("Error fetching cached stock data: \(error)")
             return []
+        }
+    }
+    
+    func addRemoveToWishList(_ isAdded: Bool, _ model: Stock) {
+        do {
+            let fetchDescriptor = FetchDescriptor<StockEntity>(
+                predicate: #Predicate { $0.sid == (model.sid ?? "") }
+            )
+            let existingStock = try modelContext.fetch(fetchDescriptor).first
+            existingStock?.isWishlist = isAdded
+            try modelContext.save()
+        } catch {
+            print("Error fetching cached stock data: \(error)")
+        }
+    }
+    
+    func loadWishList() -> [Stock] {
+        do {
+            let fetchDescriptor = FetchDescriptor<StockEntity>(
+                predicate: #Predicate { $0.isWishlist }
+            )
+            let storedStocks = try modelContext.fetch(fetchDescriptor)
+            return storedStocks.map {
+                Stock(
+                    sid: $0.sid,
+                    price: $0.price,
+                    date: $0.date,
+                    change: $0.change,
+                    high: $0.high,
+                    low: $0.low,
+                    volume: $0.volume,
+                    isFav: $0.isWishlist
+                )
+            }
+        } catch {
+            print("Error fetching cached stock data: \(error)")
+            return []
+        }
+    }
+    
+    func checkIfStockInWishList(_ model: Stock) -> Bool {
+        do {
+            let fetchDescriptor = FetchDescriptor<StockEntity>(
+                predicate: #Predicate { $0.sid == (model.sid ?? "") }
+            )
+            let storedStocks = try modelContext.fetch(fetchDescriptor)
+            return storedStocks.first?.isWishlist ?? false
+        } catch {
+            print("Error fetching cached stock data: \(error)")
+            return false
         }
     }
     
