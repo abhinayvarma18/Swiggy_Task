@@ -55,8 +55,10 @@ struct StockListingView: View {
                 ScrollView(showsIndicators: false) {
                     VStack{
                         ForEach($viewModel.stocks, id: \.sid) { $model in
-                            StockView(model: $model, context: modelData.context)
-                                .padding(.bottom, 30)
+                            StockView(model: $model, context: modelData.context) { model in
+                                viewModel.wishlistClicked(model)
+                            }
+                            .padding(.bottom, 30)
                         }
                     }
                     .padding(.vertical)
@@ -69,6 +71,7 @@ struct StockListingView: View {
                 ))
                 .frame(maxHeight: .infinity, alignment: .top)
                 .border(.black.opacity(0.7))
+                .toast(isShowing: $viewModel.showToast, message: viewModel.toastMessage)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear {

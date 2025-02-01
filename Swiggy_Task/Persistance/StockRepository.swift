@@ -15,7 +15,6 @@ protocol StockRepositoryProtocol {
     func loadCachedStocks() -> [Stock]
     func loadWishList() -> [Stock]
     func addRemoveToWishList(_ isAdded: Bool, _ model: Stock)
-    func checkIfStockInWishList(_ model: Stock) -> Bool
 }
 
 class StockRepository: StockRepositoryProtocol {
@@ -143,21 +142,9 @@ class StockRepository: StockRepositoryProtocol {
             return []
         }
     }
-    
-    func checkIfStockInWishList(_ model: Stock) -> Bool {
-        do {
-            let fetchDescriptor = FetchDescriptor<StockEntity>(
-                predicate: #Predicate { $0.sid == (model.sid ?? "") }
-            )
-            let storedStocks = try modelContext.fetch(fetchDescriptor)
-            return storedStocks.first?.isWishlist ?? false
-        } catch {
-            print("Error fetching cached stock data: \(error)")
-            return false
-        }
-    }
-    
-    // Helper function to generate API URL
+}
+// Helper function to generate API URL
+extension StockRepository {
     private func generateUrlForStocks() -> String {
         let urlString = APIEndPoints.stockData
         return addQueryParams(urlString)

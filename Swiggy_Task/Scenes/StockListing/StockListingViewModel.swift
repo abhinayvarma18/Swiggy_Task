@@ -11,6 +11,8 @@ final class StockListingViewModel: ObservableObject {
     let repository: StockRepositoryProtocol?
     var pollingManager: StockPollingManagerProtocol?
     var timer: Timer?
+    @Published var showToast: Bool = false
+    @Published var toastMessage: String = ""
     
     @Published var stocks: [Stock] = []
     @Published var error: NetworkError?
@@ -39,6 +41,13 @@ final class StockListingViewModel: ObservableObject {
     }
     deinit {
         pollingManager?.stopPolling()
+    }
+    func wishlistClicked(_ model: Stock) {
+        DispatchQueue.main.async {
+            self.showToast = true
+            let stockName = StockType.allCases.filter({$0.stockCode == model.sid}).first?.stockName ?? ""
+            self.toastMessage = model.isFav ?? false ? "\(stockName) added to wishlist" : "\(stockName) Removed from wishlist"
+        }
     }
 }
 

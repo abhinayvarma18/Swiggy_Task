@@ -12,9 +12,9 @@ struct StockResponse: Codable {
 }
 struct Stock: Codable {
     let sid: String?
-    var price: Double?
+    let price: Double?
     let date: String?
-    var change: Double?
+    let change: Double?
     let high: Double?
     let low: Double?
     let volume: Double?

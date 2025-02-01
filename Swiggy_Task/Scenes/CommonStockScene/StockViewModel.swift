@@ -13,7 +13,4 @@ class StockViewModel: ObservableObject {
     func addRemoveWishList(_ model: Stock, _ isWishlist: Bool) {
         repository?.addRemoveToWishList(isWishlist, model)
     }
-//    func checkIfStockInWishlist(_ model: Stock) -> Bool {
-//        return repository?.checkIfStockInWishList(model) ?? false
-//    }
 }

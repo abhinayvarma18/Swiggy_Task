@@ -10,13 +10,11 @@ import SwiftUI
 struct WishListButton: View {
     @ObservedObject var viewModel: StockViewModel
     var onClickFav: ((Stock) -> ())?
-    //@State private var isAdded: Bool
     @Binding var model: Stock
     init(_ viewModel: StockViewModel, _ stock: Binding<Stock>, onClickFav: ((Stock) -> ())? = nil) {
         self.onClickFav = onClickFav
         self.viewModel = viewModel
         self._model = stock
-        //_isAdded = State(initialValue: stock.isFav.wrappedValue ?? false)
     }
     var body: some View {
         Button(action: {
