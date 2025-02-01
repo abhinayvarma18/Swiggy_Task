@@ -28,7 +28,7 @@ struct StockView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 15)
                         .fill(Color.white)
-                        .shadow(color: Color.green.opacity(0.2), radius: 10, x: 0, y: 5) // Green-tinted shadow
+                        .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0, y: 5) // Green-tinted shadow
                 )
                 .padding(.horizontal)
             

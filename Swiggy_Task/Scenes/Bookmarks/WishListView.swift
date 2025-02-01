@@ -37,12 +37,12 @@ struct WishListView: View {
             }
             Spacer()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(LinearGradient(
-            gradient: Gradient(colors: [Color.white, Color(hex: "#e4f8ed")]),
+            gradient: Gradient(colors: [Color.white, Color(hex: "#F7881F")]),
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         ))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationTitle("Favorites")
         .onAppear {
             viewModel.loadData()

@@ -28,7 +28,7 @@ struct StockListingView: View {
                     HStack {
                         Text("Last synced at \(viewModel.lastFetchTime ?? "")")
                             .font(.headline)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .bold()
                             .multilineTextAlignment(.center)
                         Spacer()
@@ -40,7 +40,7 @@ struct StockListingView: View {
                                 Image(systemName: "heart.fill")
                                 Text("Favorites")
                                     .font(.headline)
-                                    .foregroundColor(.red)
+                                    .foregroundColor(.white)
                                     .bold()
                             }
                             .foregroundColor(.red)
@@ -51,7 +51,7 @@ struct StockListingView: View {
                     .padding()
                 }
                 .frame(height: 80.0)
-                .background(Color.orange.opacity(0.7))
+                .background(Color(hex: "#F7881F"))
                 ScrollView(showsIndicators: false) {
                     VStack{
                         ForEach($viewModel.stocks, id: \.sid) { $model in
