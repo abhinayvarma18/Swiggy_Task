@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WishListButton: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @ObservedObject var viewModel: StockViewModel
     var onClickFav: ((Stock) -> ())?
     @Binding var model: Stock
@@ -27,15 +28,15 @@ struct WishListButton: View {
         }) {
             ZStack {
                 Circle()
-                    .fill(self.model.isFav ?? false ? Color(hex: "#A0F0ED") : Color.orange.opacity(0.7))
+                    .fill(self.model.isFav ?? false ? themeManager.selectedTheme.favSelectedIconColor : themeManager.selectedTheme.favUnSelectedIconColor.opacity(0.7))
                     .frame(width: 35, height: 35)
-                    .shadow(color: self.model.isFav ?? false ? Color(hex: "#00B894").opacity(0.5) : Color.clear, radius: 5)
+                    .shadow(color: self.model.isFav ?? false ? themeManager.selectedTheme.favShadowColor.opacity(0.5) : Color.clear, radius: 5)
                 
-                Image(systemName: self.model.isFav ?? false ? "checkmark.circle.fill" : "bookmark.fill")
+                Image(systemName: self.model.isFav ?? false ? Constants.wishlistSelectedImage : Constants.wishlistunSelectedImage)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 21, height: 21)
-                    .foregroundColor(self.model.isFav ?? false ? Color(hex: "#00B894") : .white)
+                    .foregroundColor(self.model.isFav ?? false ? themeManager.selectedTheme.favShadowColor : themeManager.selectedTheme.white)
                     .scaleEffect(self.model.isFav ?? false ? 1.2 : 1.0)
                     .rotationEffect(.degrees(self.model.isFav ?? false ? 360 : 0))
                     .opacity(self.model.isFav ?? false ? 1 : 0.8)

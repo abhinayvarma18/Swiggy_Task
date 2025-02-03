@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct StockListingView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject private var modelData: ModelData
     @EnvironmentObject var router: NavigationRouter
@@ -25,7 +26,11 @@ struct StockListingView: View {
         NavigationStack(path: $router.path) {
             VStack(alignment: .center, spacing: 4) {
                 headerView()
-                listView()
+                if viewModel.error != nil {
+                    getErrorView(forError: viewModel.error)
+                } else {
+                    listView()
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .toast(isShowing: $viewModel.showToast, message: viewModel.toastMessage)
@@ -66,11 +71,7 @@ struct StockListingView: View {
             .padding(.vertical)
         }
         .padding(.vertical, 20)
-        .background(LinearGradient(
-            gradient: Gradient(colors: [Color.white, Color(hex: "#e4f8ed")]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        ))
+        .background(themeManager.selectedTheme.stockListingGradient)
         .frame(maxHeight: .infinity, alignment: .top)
         .border(.black.opacity(0.7))
     }
@@ -81,7 +82,7 @@ struct StockListingView: View {
             HStack {
                 Text("Last synced at \(viewModel.lastFetchTime ?? "")")
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundColor(themeManager.selectedTheme.white)
                     .bold()
                     .multilineTextAlignment(.center)
                 Spacer()
@@ -93,7 +94,7 @@ struct StockListingView: View {
                         Image(systemName: "heart.fill")
                         Text("Favorites")
                             .font(.headline)
-                            .foregroundColor(.white)
+                            .foregroundColor(themeManager.selectedTheme.white)
                             .bold()
                     }
                     .foregroundColor(.red)
@@ -104,25 +105,25 @@ struct StockListingView: View {
             .padding()
         }
         .frame(height: 80.0)
-        .background(Color(hex: "#F7881F"))
+        .background(themeManager.selectedTheme.primaryColor)
     }
     
-    private func getErrorView() -> some View {
+    private func getErrorView(forError: NetworkError?) -> some View {
         VStack(alignment: .center, spacing: 40) {
             Spacer()
-            Image("nointernet")
+            Image(Constants.errorImageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(.horizontal, 90)
             VStack(alignment: .center, spacing: 16) {
-                Text("No Stocks Found")
+                Text(Constants.errorTitle)
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(.black.opacity(0.7))
-                Text("May be go back and try to wishlist few of the stocks")
+                Text(forError?.message ?? Constants.defaultErrorMessage)
                     .font(.title)
                     .bold()
-                    .foregroundColor(.gray)
+                    .foregroundColor(themeManager.selectedTheme.gray)
                     .multilineTextAlignment(.center)
             }
             Spacer()

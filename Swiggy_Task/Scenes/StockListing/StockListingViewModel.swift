@@ -25,10 +25,19 @@ final class StockListingViewModel: ObservableObject {
         let formatter = DateFormatter()
         formatter.timeStyle = .medium
         // Set up polling
-        self.pollingManager?.onStockDataUpdate = { [weak self] updatedStocks in
-            DispatchQueue.main.async {
-                self?.lastFetchTime = formatter.string(from: Date.now)
-                self?.refreshStocks()
+        self.pollingManager?.onStockDataUpdate = { [weak self] result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    self?.error = nil
+                    self?.lastFetchTime = formatter.string(from: Date.now)
+                    self?.refreshStocks()
+                    //not using server data because it doesnt has the track of favorite, loading data from db since the objects are stored in db
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.error = error
+                }
             }
         }
     }
@@ -46,7 +55,7 @@ final class StockListingViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.showToast = true
             let stockName = StockType.allCases.filter({$0.stockCode == model.sid}).first?.stockName ?? ""
-            self.toastMessage = model.isFav ?? false ? "\(stockName) added to wishlist" : "\(stockName) Removed from wishlist"
+            self.toastMessage = model.isFav ?? false ? "\(stockName) \(Constants.wishlistAdded)" : "\(stockName) \(Constants.wishlistremoved)"
         }
     }
 }

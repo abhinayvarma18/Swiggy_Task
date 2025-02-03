@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct WishListView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @EnvironmentObject private var modelData: ModelData
     @StateObject private var viewModel: WishListViewModel
     init(modelContext: ModelContext) {
@@ -18,58 +19,60 @@ struct WishListView: View {
     }
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-                Text("Wishlist")
-                    .font(.largeTitle)
-                    .bold()
-                Spacer()
-            }
-            .padding()
+            headerView()
             if !viewModel.stocks.isEmpty {
-                ScrollView {
-                    VStack{
-                        ForEach($viewModel.stocks, id: \.sid) { $model in
-                            StockView(model: $model, context: modelData.context) { (newmodel) in
-                                viewModel.removeFromWishList(newmodel)
-                            }
-                            .padding(.bottom, 30)
-                        }
-                    }
-                    .padding(.leading, 10)
-                    .padding(.top, 20)
-                }
+                listView()
             } else {
                 getNoDataView()
             }
             Spacer()
         }
-        .background(LinearGradient(
-            gradient: Gradient(colors: [Color.white, Color(hex: "#F7881F")]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        ))
+        .background(themeManager.selectedTheme.wishlistGradient)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
             viewModel.loadData()
         }
     }
-    @ViewBuilder func getNoDataView() -> some View {
+    private func headerView() -> some View {
+        HStack {
+            Spacer()
+            Text("Wishlist")
+                .font(.largeTitle)
+                .bold()
+            Spacer()
+        }
+        .padding()
+    }
+    private func listView() -> some View {
+        ScrollView {
+            VStack{
+                ForEach($viewModel.stocks, id: \.sid) { $model in
+                    StockView(model: $model, context: modelData.context) { (newmodel) in
+                        viewModel.removeFromWishList(newmodel)
+                    }
+                    .padding(.bottom, 30)
+                }
+            }
+            .padding(.leading, 10)
+            .padding(.top, 20)
+        }
+    }
+    private func getNoDataView() -> some View {
         VStack(alignment: .center, spacing: 40) {
             Spacer()
-            Image("noData")
+            Image(Constants.noDataImageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(.horizontal, 90)
             VStack(alignment: .center, spacing: 16) {
-                Text("No Stocks Found")
+                Text(Constants.noStocksErrorString)
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(.black.opacity(0.7))
-                Text("May be go back and try to wishlist few of the stocks")
+                Text(Constants.noStocksErrorStringSuggestion)
                     .font(.title)
                     .bold()
-                    .foregroundColor(.gray)
+                    .foregroundColor(themeManager.selectedTheme.gray)
                     .multilineTextAlignment(.center)
             }
             Spacer()

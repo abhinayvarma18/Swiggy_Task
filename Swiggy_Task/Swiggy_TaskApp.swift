@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct Swiggy_TaskApp: App {
+    @StateObject var themeManager = ThemeManager()
     @StateObject private var modelData = ModelData()
     @StateObject var router = NavigationRouter()
     var body: some Scene {
@@ -17,6 +18,7 @@ struct Swiggy_TaskApp: App {
             StockListingView(modelData.context)
                 .environmentObject(modelData)
                 .environmentObject(router)
+                .environmentObject(themeManager)
         }
         .modelContainer(modelData.container)
     }

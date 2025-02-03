@@ -6,6 +6,7 @@
 //
 import SwiftUI
 struct ToastModifier: ViewModifier {
+    @EnvironmentObject var themeManager: ThemeManager
     @Binding var isShowing: Bool
     let message: String
     let duration: TimeInterval
@@ -21,7 +22,7 @@ struct ToastModifier: ViewModifier {
                         .font(.headline)
                         .padding()
                         .background(Color.black.opacity(0.8))
-                        .foregroundColor(.white)
+                        .foregroundColor(themeManager.selectedTheme.white)
                         .cornerRadius(10)
                         .shadow(radius: 5)
                         .transition(.move(edge: .bottom).combined(with: .opacity))

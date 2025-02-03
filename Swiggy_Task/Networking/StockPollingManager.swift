@@ -8,7 +8,7 @@
 import Foundation
 
 protocol StockPollingManagerProtocol {
-    var onStockDataUpdate: (([Stock]) -> Void)? { get set }
+    var onStockDataUpdate: (((Result<[Stock], NetworkError>)) -> Void)? { get set }
     func startPolling()
     func stopPolling()
 }
@@ -16,7 +16,7 @@ protocol StockPollingManagerProtocol {
 class StockPollingManager: StockPollingManagerProtocol {
     private var timer: Timer?
     private let repository: StockRepositoryProtocol
-    var onStockDataUpdate: (([Stock]) -> Void)?
+    var onStockDataUpdate: ((Result<[Stock], NetworkError>) -> Void)?
 
     init(repository: StockRepositoryProtocol) {
         self.repository = repository
@@ -42,9 +42,9 @@ class StockPollingManager: StockPollingManagerProtocol {
             switch result {
             case .success(let stocks):
                 self?.repository.saveStocksToDatabase(stocks)
-                self?.onStockDataUpdate?(stocks)
+                self?.onStockDataUpdate?(.success(stocks))
             case .failure(let error):
-                print("Stock API Error: \(error)")
+                self?.onStockDataUpdate?(.failure(error))
             }
         }
     }

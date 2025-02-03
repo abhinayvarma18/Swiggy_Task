@@ -32,3 +32,22 @@ extension Stock {
         }
     }
 }
+
+struct MainTheme: ThemeProtocol {
+    var primaryColor = Color(hex: "#F7881F")
+    var favSelectedIconColor = Color(hex: "#A0F0ED")
+    var favUnSelectedIconColor = Color.orange
+    var favShadowColor = Color(hex: "#00B894")
+    var stockListingGradient = LinearGradient(
+        gradient: Gradient(colors: [Color.white, Color(hex: "#e4f8ed")]),
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+    var wishlistGradient = LinearGradient(
+        gradient: Gradient(colors: [Color.white, Color(hex: "#F7881F")]),
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+    var gray = Color.gray
+    var white = Color.white
+}

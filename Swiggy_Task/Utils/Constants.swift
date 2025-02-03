@@ -4,9 +4,23 @@
 //
 //  Created by abhinay varma on 31/01/25.
 //
-
+import SwiftUI
 struct Constants {
     static let timeIntervalForPolling: Double = 5
+    static let noStocksErrorString = "No Stocks Found"
+    static let noStocksErrorStringSuggestion = "May be go back and try to wishlist few of the stocks"
+    static let noDataImageName = "noData"
+    static let errorImageName = "nointernet"
+    static let errorTitle = "Oops we have encountered a problem"
+    static let defaultErrorMessage = "Server error"
+    static let wishlistAdded = "added to wishlist"
+    static let wishlistremoved = "removed from wishlist"
+    static let arrowUpImageName = "arrow.up.circle.fill"
+    static let arrowDownImageName = "arrow.down.circle.fill"
+    static let wishlistSelectedImage = "checkmark.circle.fill"
+    static let wishlistunSelectedImage = "bookmark.fill"
+    
+    static let descriptionStock = "This stock is in top 5 trending NSE stocks"
 }
 
 enum APIEndPoints {

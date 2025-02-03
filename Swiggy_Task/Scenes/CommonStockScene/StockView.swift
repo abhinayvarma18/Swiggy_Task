@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct StockView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @StateObject var viewModel: StockViewModel
     @State private var animateChange = false
     var onClickFav: ((Stock) -> ())?
@@ -27,8 +28,8 @@ struct StockView: View {
                 .padding(.vertical, 12)
                 .background(
                     RoundedRectangle(cornerRadius: 15)
-                        .fill(Color.white)
-                        .shadow(color: Color.gray.opacity(0.4), radius: 10, x: 0, y: 5) // Green-tinted shadow
+                        .fill(themeManager.selectedTheme.white)
+                        .shadow(color: themeManager.selectedTheme.gray.opacity(0.4), radius: 10, x: 0, y: 5) // Green-tinted shadow
                 )
                 .padding(.horizontal)
             
@@ -52,9 +53,9 @@ struct StockView: View {
                 Text(model.getItemName() ?? "")
                     .font(.headline)
                     .foregroundColor(.black)
-                Text("Ad eam errem homero doming, veniam delet.")
+                Text(Constants.descriptionStock)
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(themeManager.selectedTheme.gray)
             }
             Spacer()
             VStack(alignment: .center) {
@@ -72,7 +73,7 @@ struct StockView: View {
                         .opacity(animateChange ? 1.0 : 0.2) // Flash effect
                         .animation(.spring(response: 0.4, dampingFraction: 0.6), value: animateChange)
                     
-                    Image(systemName: model.change ?? 0 > 0 ? "arrow.up.circle.fill" : "arrow.down.circle.fill")
+                    Image(systemName: model.change ?? 0 > 0 ? Constants.arrowUpImageName : Constants.arrowDownImageName)
                         .foregroundColor(model.change ?? 0 > 0 ? .green : .red)
                         .frame(width: 20, height: 20)
                         .scaleEffect(animateChange ? 1.5 : 1.0) // Noticeable scaling effect

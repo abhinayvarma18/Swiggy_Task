@@ -138,7 +138,6 @@ class StockRepository: StockRepositoryProtocol {
                 )
             }
         } catch {
-            print("Error fetching cached stock data: \(error)")
             return []
         }
     }
