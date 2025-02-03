@@ -29,9 +29,22 @@
 		5428524A2D4D25D700213410 /* Swiggy_TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swiggy_TaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		54FE99402D51808E0074A01D /* Exceptions for "Swiggy_Task" folder in "Swiggy_TaskTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Utils/stocks.json,
+			);
+			target = 5428523F2D4D25D700213410 /* Swiggy_TaskTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		542852302D4D25D300213410 /* Swiggy_Task */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				54FE99402D51808E0074A01D /* Exceptions for "Swiggy_Task" folder in "Swiggy_TaskTests" target */,
+			);
 			path = Swiggy_Task;
 			sourceTree = "<group>";
 		};
