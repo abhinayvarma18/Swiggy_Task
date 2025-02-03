@@ -25,7 +25,7 @@ class StockPollingManager: StockPollingManagerProtocol {
     func startPolling() {
         timer?.invalidate()
         // Schedule a repeating timer to fetch stock data every 10 seconds
-        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: Constants.timeIntervalForPolling, repeats: true) { [weak self] _ in
             self?.fetchStockData()
         }
         // Fetch initial data immediately

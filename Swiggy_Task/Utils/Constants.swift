@@ -6,7 +6,7 @@
 //
 
 struct Constants {
-    static let timeIntervalForPolling: Double = 10
+    static let timeIntervalForPolling: Double = 5
 }
 
 enum APIEndPoints {

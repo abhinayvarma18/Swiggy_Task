@@ -61,12 +61,15 @@ struct StockView: View {
                 Text("\(model.price ?? 0, specifier: "%.2f")")
                     .font(.headline)
                     .foregroundColor(.black)
+                    .scaleEffect(animateChange ? 1.3 : 1.0) // Pop effect
+                    .opacity(animateChange ? 1.0 : 0.2) // Flash effect
+                    .animation(.spring(response: 0.4, dampingFraction: 0.6), value: animateChange)
                 HStack(spacing: 16) {
                     Text("\(model.change ?? 0, specifier: "%.2f")")
                         .font(.subheadline)
                         .foregroundColor(model.change ?? 0 > 0 ? .green : .red)
                         .scaleEffect(animateChange ? 1.3 : 1.0) // Pop effect
-                        .opacity(animateChange ? 1.0 : 0.5) // Flash effect
+                        .opacity(animateChange ? 1.0 : 0.2) // Flash effect
                         .animation(.spring(response: 0.4, dampingFraction: 0.6), value: animateChange)
                     
                     Image(systemName: model.change ?? 0 > 0 ? "arrow.up.circle.fill" : "arrow.down.circle.fill")
@@ -82,7 +85,7 @@ struct StockView: View {
         }
         .onChange(of: model.change) {
             animateChange = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 animateChange = true  // Restart animation when value changes
             }
         }

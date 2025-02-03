@@ -19,21 +19,28 @@ struct WishListView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Stocks Wishlist")
+                Spacer()
+                Text("Wishlist")
+                    .font(.largeTitle)
+                    .bold()
                 Spacer()
             }
             .padding()
-            ScrollView {
-                VStack{
-                    ForEach($viewModel.stocks, id: \.sid) { $model in
-                        StockView(model: $model, context: modelData.context) { (newmodel) in
-                            viewModel.removeFromWishList(newmodel)
+            if !viewModel.stocks.isEmpty {
+                ScrollView {
+                    VStack{
+                        ForEach($viewModel.stocks, id: \.sid) { $model in
+                            StockView(model: $model, context: modelData.context) { (newmodel) in
+                                viewModel.removeFromWishList(newmodel)
+                            }
+                            .padding(.bottom, 30)
                         }
-                        .padding(.bottom, 30)
                     }
+                    .padding(.leading, 10)
+                    .padding(.top, 20)
                 }
-                .padding(.leading, 10)
-                .padding(.top, 20)
+            } else {
+                getNoDataView()
             }
             Spacer()
         }
@@ -43,10 +50,32 @@ struct WishListView: View {
             endPoint: .bottomTrailing
         ))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .navigationTitle("Favorites")
         .onAppear {
             viewModel.loadData()
         }
+    }
+    @ViewBuilder func getNoDataView() -> some View {
+        VStack(alignment: .center, spacing: 40) {
+            Spacer()
+            Image("noData")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.horizontal, 90)
+            VStack(alignment: .center, spacing: 16) {
+                Text("No Stocks Found")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(.black.opacity(0.7))
+                Text("May be go back and try to wishlist few of the stocks")
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+            }
+            Spacer()
+            Spacer()
+        }
+        .frame(maxWidth: .infinity)
     }
 }
 
